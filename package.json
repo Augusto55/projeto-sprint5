@@ -1,0 +1,24 @@
+{
+  "name": "projeto-sprint5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Augusto55/projeto-sprint5.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Augusto55/projeto-sprint5/issues"
+  },
+  "homepage": "https://github.com/Augusto55/projeto-sprint5#readme",
+  "devDependencies": {
+    "cypress": "^8.7.0",
+    "mochawesome": "^6.3.1"
+  }
+}
