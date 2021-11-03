@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "cy:run": "cypress run",
+    "cy:open": "cypress open --config watchForFileChanges=false",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -11,7 +13,7 @@
     "url": "git+https://github.com/Augusto55/projeto-sprint5.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Augusto Tumelero Mesquita, Caio Prado Nascimento de Souza, Gabriel Costella Fontana, Julio Cesar Spanholi, Vinícius Costa Marques",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Augusto55/projeto-sprint5/issues"
