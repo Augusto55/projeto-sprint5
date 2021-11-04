@@ -17,4 +17,16 @@ export default class ServeRestLogin extends Base {
         super.clickOnElement(LG.BTN_LOGIN)
     }
 
+    static verificarLogin() {
+        super.validarUrl('/login')
+        super.validarElemento(LG.BTN_LOGIN)
+        super.validarElemento(LG.IMG)
+        super.validarElemento(LG.INP_EMAIL)
+        super.validarElemento(LG.INP_PASSWORD)
+        super.validateElementText(LG.TXT_LOGIN, 'Login')
+        super.validateElementText(LG.TXT_CADASTRO, 'Não é cadastrado?Cadastre-se')
+        super.verifyIfElementDoesNotExists(LG.VALUES)
+
+    }
+
 }
