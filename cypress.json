@@ -1,4 +1,3 @@
 {
-	"baseURL": "https://serverest.dev",
-	"baseURL_front": "https://front.serverest.dev/"
+	"baseURL": "https://serverest.dev"
 }
