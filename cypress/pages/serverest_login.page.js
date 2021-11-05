@@ -2,7 +2,7 @@ import Base from './_base.page';
 
 import loginCredentials from '../fixtures/loginCredentials'
 
-import {LOGIN as LG} from './components/sauce.elements'
+import {LOGIN as LG} from './components/serverest_login.elements'
 
 
 export default class ServeRestLogin extends Base {
