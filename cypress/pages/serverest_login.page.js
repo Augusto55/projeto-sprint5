@@ -30,7 +30,7 @@ export default class ServeRestLogin extends Base {
         super.verificarSeElementoNãoContem(LG.INP_PASSWORD, LG.VALUES)
     }
 
-    static validarNavBar() {
+    static validarNavBarAdmin() {
         super.validarUrl('/home')
         super.validarElemento(HNAV.BTN_CADASTRARUSER)
         super.validarElemento(HNAV.BTN_LISTARUSER)
@@ -42,12 +42,14 @@ export default class ServeRestLogin extends Base {
          
     }
 
-    static validarCorpo() {
+    static validarCorpoAdmin() {
         super.validarElemento(HP.BTN_CADASTRARUSER)
         super.validarElemento(HP.BTN_LISTARUSER)
         super.validarElemento(HP.BTN_CADASTRARPRODUTOS)
         super.validarElemento(HP.BTN_LISTARPRODUTOS)
         super.validarElemento(HP.BTN_RELATORIOS)
-    }
+        super.validateElementText(HP.DIV_PRINCIPAL, `Bem vindo`)
+        super.validateElementText(HP.TXT_SUBTITULO, 'Este é seu sistema para administrar seu ecommerce.')
+}
 
 }
