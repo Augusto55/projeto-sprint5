@@ -1,23 +1,26 @@
 /// <reference types="cypress" />
 
 import ServeRestLogin from '../pages/serverest_login.page'
-import {SR_CadastroProduto } from '../pages/serverest_prod.page'
+import ServeRestCadastrarUsuario from '../pages/serverest_cdusuario.page'
 
 describe('Testes Front ServeRest', () => {
-    beforeEach(() => {
-        ServeRestLogin.acessarSauce()
+    before(() => {
+        ServeRestLogin.acessarServeRest()
     })
-    context('estar logado', () => {
-        beforeEach(() => {
+        
+        it('cadastra', () => {
             
-            ServeRestLogin.logar()
+            ServeRestCadastrarUsuario.realizar_cadastro()
+            cy.wait(3000)
+        })
+        it('logar', () => {
+            
+            ServeRestLogin.acessarServeRest()
+            ServeRestCadastrarUsuario.login()
         })
 
-        it('cadastrar produto', () => {
-            
-
-        })
+        
 
 
-    })
+    
 })
