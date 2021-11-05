@@ -13,6 +13,8 @@ describe('Testes Front ServeRest', () => {
 
         it('Logar e validar elementos da página inicial', () => {
             ServeRestLogin.logar()
+            ServeRestLogin.validarNavBar()
+            ServeRestLogin.validarCorpo()
         })
 
 
