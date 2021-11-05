@@ -2,9 +2,11 @@ import Base from './_base.page';
 
 import loginCredentials from '../fixtures/loginCredentials'
 
+
 import {LOGIN as LG} from './components/login.elements'
 import {HOMEPAGE_NAVBAR as HNAV} from './components/home_page.elements'
 import {HOMEPAGE as HP} from './components/home_page.elements'
+
 
 
 export default class ServeRestLogin extends Base {
