@@ -6,6 +6,8 @@ import {LOGIN as LG} from './components/login.elements'
 import {HOMEPAGE_NAVBAR as HNAV} from './components/home_page.elements'
 import {HOMEPAGE as HP} from './components/home_page.elements'
 
+var myModule = require('./serverest_cdusuario.page');
+var name = myModule.newName;
 
 
 export default class ServeRestLogin extends Base {
@@ -50,7 +52,7 @@ export default class ServeRestLogin extends Base {
         super.validarElemento(HP.BTN_CADASTRARPRODUTOS)
         super.validarElemento(HP.BTN_LISTARPRODUTOS)
         super.validarElemento(HP.BTN_RELATORIOS)
-        super.validateElementText(HP.DIV_PRINCIPAL, `Bem vindo`)
+        super.validateElementText(HP.DIV_PRINCIPALTXT, `Bem Vindo  ${name}`)
         super.validateElementText(HP.TXT_SUBTITULO, 'Este é seu sistema para administrar seu ecommerce.')
 }
 

@@ -1,13 +1,15 @@
 import Base from './_base.page';
 
 const faker = require('faker');
-import { CAD_USUARIO as CD} from './components/sauce.elements';
-import {LOGIN as LG} from './components/sauce.elements';
+import { CAD_USUARIO as CD} from './components/serverest.elements';
+import {LOGIN as LG} from './components/serverest.elements';
 
 
-const newName = `${faker.name.findName()}`;
+export const newName = `${faker.name.findName()}`;
 const newEmail = `${faker.internet.email()}`;
 const newSenha = `${faker.internet.password()}`;
+
+
 
 export default class ServeRestCadastrarUsuario extends Base {
 

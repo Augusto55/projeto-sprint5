@@ -14,6 +14,6 @@ export const HOMEPAGE = {
     BTN_CADASTRARPRODUTOS : '[data-testid="cadastrarProdutos"]',
     BTN_LISTARPRODUTOS : '[data-testid="listarProdutos"]',
     BTN_RELATORIOS : '[data-testid="relatorios"]',
-    DIV_PRINCIPAL : '.jumbotron',
+    DIV_PRINCIPALTXT : '.jumbotron>h1',
     TXT_SUBTITULO : '.lead'
 }
