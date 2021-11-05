@@ -4,7 +4,7 @@ import Factory from "../dynamics/factory.js"
 
 var bearer
 
-describe("Testes para PRODUTOS", () => {
+describe.only("Testes para PRODUTOS", () => {
     it("Criação de um produto no sistema utilizando POST", () => {
         let produto = Factory.geradorDeProdutos()
 

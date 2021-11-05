@@ -66,6 +66,7 @@ Cypress.Commands.add("criarProduto", (bearer, produto) => {
 //====================================================//
 Cypress.Commands.add("validarContrato", (res, schema, status) => {
     cy.fixture(`schema/${schema}/${status}.json`).then( schema => {
+        //res = resposta | rota pasta | arquivo .json
         const validate = ajv.compile(schema)
         const valid = validate(res.body)
         
