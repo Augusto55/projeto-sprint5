@@ -3,6 +3,37 @@
 import ServeRestLogin from '../pages/serverest_login.page'
 import ServeRestCadastrarUsuario from '../pages/serverest_cdusuario.page'
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 describe('Testes Front ServeRest', () => {
     before(() => {
         ServeRestLogin.acessarServeRest()
@@ -19,8 +50,4 @@ describe('Testes Front ServeRest', () => {
             ServeRestCadastrarUsuario.login()
         })
 
-        
-
-
-    
 })

@@ -1,6 +1,62 @@
 import Base from './_base.page';
 
 import loginCredentials from '../fixtures/loginCredentials'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import ServeRestCadastrarUsuario from './serverest_cdusuario.page';
 import {LOGIN as LG} from './components/sauce.elements'
 

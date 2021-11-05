@@ -72,7 +72,7 @@ export default class Base {
     this.getElement(element).should('exist', { timeout: Cypress.env('global_timeout') });
   }
 
-  static verifyIfElementDoesNotExists(element) {
+  static verifyIfElementDoesNotExist(element) {
     this.getElement(element).should('not.exist', { timeout: Cypress.env('global_timeout') });
   }
 
@@ -95,4 +95,10 @@ export default class Base {
   static validarElemento(elemento){
     this.getElement(elemento).should('be.visible', { timeout: Cypress.env('global_timeout') });
     }
+
+    static verificarSeElementoNãoContem(element, element2) {
+      this.getElement(element).should('not.contain', element2);
+    }
+  
+  
 }
