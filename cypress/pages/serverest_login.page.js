@@ -7,7 +7,8 @@ import {HOMEPAGE_NAVBAR as HNAV} from './components/home_page.elements'
 import {HOMEPAGE as HP} from './components/home_page.elements'
 
 var myModule = require('./serverest_cdusuario.page');
-var name = myModule.newName;
+var senha = myModule.newSenha;
+var usuarioFaker = myModule.newEmail;
 
 
 export default class ServeRestLogin extends Base {
@@ -16,10 +17,10 @@ export default class ServeRestLogin extends Base {
         cy.visit(`${Cypress.env('baseURL_front')}`)
     }
 
-    static logar() {
+    static logarUsuárioInexistente(usuario) {
 
-        super.typeValue(LG.INP_EMAIL, ServeRestCadastrarUsuario.newEmail)
-        super.typeValue(LG.INP_PASSWORD, ServeRestCadastrarUsuario.newSenha)
+        super.typeValue(LG.INP_EMAIL, usuario)
+        super.typeValue(LG.INP_PASSWORD, senha)
         super.clickOnElement(LG.BTN_LOGIN)
     }
 
@@ -55,5 +56,23 @@ export default class ServeRestLogin extends Base {
         super.validateElementText(HP.DIV_PRINCIPALTXT, `Bem Vindo  ${name}`)
         super.validateElementText(HP.TXT_SUBTITULO, 'Este é seu sistema para administrar seu ecommerce.')
 }
+
+    static validarLoginInvalido() {
+        super.validateElementText(LG.ERROR_WINDOW, 'Email e/ou senha inválidos')
+    }
+
+    static logarSenhaErrada(senhaErrada) {
+
+        super.typeValue(LG.INP_EMAIL, usuarioFaker)
+        super.typeValue(LG.INP_PASSWORD, senhaErrada)
+        super.clickOnElement(LG.BTN_LOGIN)
+    }
+
+    static validarAlert() {
+        cy.on('window:alert', (str) => {
+            expect(str).to.contain(`Inclua um "@" no endereço de e-mail.`)
+     })
+    }
+
 
 }

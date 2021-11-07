@@ -37,8 +37,30 @@ describe('Testes Front ServeRest', () => {
     })
 
 
-    describe('Testes de login negativos', () => {
 
+
+    describe('Testes de login negativos', () => {
+        before(() => {
+            ServeRestLogin.acessarServeRest()
+        })
+
+        it('Deve logar com um usuário que não existe', () => {
+            
+            ServeRestLogin.logarUsuárioInexistente('sadjabdba22@qa.com')
+            ServeRestLogin.validarLoginInvalido()
+        })
+
+        it('Deve logar com um usuário existente mas com a senha errada', () => {
+            ServeRestLogin.acessarServeRest()
+            ServeRestLogin.logarSenhaErrada('senhaerrada')
+            ServeRestLogin.validarLoginInvalido()
+        })
+        
+        it.only('Deve tentar logar com um usuário com caracteres inválidos', () => {
+            ServeRestLogin.acessarServeRest()
+            ServeRestLogin.logarUsuárioInexistente('asdad123')
+            ServeRestLogin.validarAlert()
+        })
     })
     
 

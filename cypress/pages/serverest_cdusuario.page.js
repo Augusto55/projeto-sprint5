@@ -6,8 +6,8 @@ import {LOGIN as LG} from './components/serverest.elements';
 
 
 export const newName = `${faker.name.findName()}`;
-const newEmail = `${faker.internet.email()}`;
-const newSenha = `${faker.internet.password()}`;
+export const newEmail = `${faker.internet.email()}`;
+export const newSenha = `${faker.internet.password()}`;
 
 
 
