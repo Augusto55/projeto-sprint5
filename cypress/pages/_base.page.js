@@ -96,8 +96,8 @@ export default class Base {
     this.getElement(elemento).should('be.visible', { timeout: Cypress.env('global_timeout') });
   }
 
-  static verificarSeElementoNãoContem(element, element2) {
-      this.getElement(element).should('not.contain', element2);
+  static verificarSeElementoNãoContemAtr(element, atr) {
+    cy.get(element).should('not.have.attr', atr)
   }
 
   static validateElementValue(element, text, index = undefined) {

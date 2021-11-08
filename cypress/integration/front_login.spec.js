@@ -26,10 +26,11 @@ describe('Testes Front ServeRest', () => {
         it('Deve logar com esse mesmo usuário', () => {
             ServeRestLogin.acessarServeRest()
             ServeRestCadastrarUsuario.login()
+            cy.wait(3000)
         })
 
-        it('Logar e validar elementos da página inicial', () => {
-            ServeRestCadastrarUsuario.login()
+        it('Deve validar elementos da página inicial', () => {
+            //ServeRestCadastrarUsuario.login()
             ServeRestLogin.validarNavBarAdmin()
             ServeRestLogin.validarCorpoAdmin()
         })
@@ -39,19 +40,19 @@ describe('Testes Front ServeRest', () => {
 
 
     describe('Testes de login com um usuário sem propriedades de administrador', () => {    
-        it.only('Deve cadastrar um usuário', () => {
+        it('Deve cadastrar um usuário', () => {
+            ServeRestLogin.acessarServeRest()
             ServeRestCadastrarUsuario.realizar_cadastroNaoAdmin()
             cy.wait(3000)
         })
 
-        it.only('Deve logar com esse mesmo usuário', () => {
-            cy.wait(2000)
+        it('Deve logar com esse mesmo usuário', () => {
             ServeRestLogin.acessarServeRest()
-            ServeRestCadastrarUsuario.login()
+            ServeRestCadastrarUsuario.loginNaoAdmin()
             cy.wait(2000)
         })
 
-        it.only('Validar elementos da página inicial', () => {
+        it('Validar elementos da página inicial', () => {
             ServeRestLogin.validarHomepageNaoAdmin()
             ServeRestLogin.validarDivsProdutos()
             ServeRestLogin.validarValue()

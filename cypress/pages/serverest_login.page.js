@@ -40,7 +40,7 @@ export default class ServeRestLogin extends Base {
         super.validarElemento(LG.INP_PASSWORD)
         super.validateElementText(LG.TXT_LOGIN, 'Login')
         super.validateElementText(LG.TXT_CADASTRO, 'Não é cadastrado?Cadastre-se')
-        super.verificarSeElementoNãoContem(LG.INP_PASSWORD, LG.VALUES)
+        super.verificarSeElementoNãoContemAtr(LG.INP_PASSWORD, 'value')
     }
 
     static validarNavBarAdmin() {
