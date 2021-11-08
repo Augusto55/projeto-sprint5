@@ -44,6 +44,32 @@ Cypress.Commands.add("buscarProdutos", () => {
     })
 })
 
+Cypress.Commands.add("buscarProdutoExistente", (_id) => {
+    cy.request({
+        method: "GET",
+        url: `${Cypress.env("base_url")}/produtos/${_id}`,
+        failOnStatusCode: false
+    })
+})
+
+Cypress.Commands.add("deletarProduto", (bearer ,_id) => {
+    cy.request({
+        method: "DELETE",
+        url: `${Cypress.env("base_url")}/produtos/${_id}`,
+        failOnStatusCode: false,
+        headers: {Authorization: bearer}
+    })
+})
+
+Cypress.Commands.add("editarProduto", (bearer, _id) => {
+    cy.request({
+        method: "PUT",
+        url: `${Cypress.env("base_url")}/produtos/${_id}`,
+        failOnStatusCode: false,
+        headers: {Authorization: bearer}
+    })
+})
+
 Cypress.Commands.add("criarProduto", (bearer, produto) => {
     return cy.request({
         method: "POST",

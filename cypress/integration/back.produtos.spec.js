@@ -4,7 +4,7 @@ import Factory from "../dynamics/factory.js"
 
 var bearer
 
-describe.only("Testes para PRODUTOS", () => {
+describe("Testes para PRODUTOS", () => {
     it(`Requesição GET na rota dos produtos \n(Lista todos produtos disponiveis)`, () => {
         cy.buscarProdutos().then( res => {
             expect(res.statusCode === 200)
@@ -63,8 +63,8 @@ describe.only("Testes para PRODUTOS", () => {
                 
                 cy.criarProduto(bearer, produto).then (res => {
                     expect(res.statusCode === 401);
-                    expect(res.body).to.have.property("message")
-                    expect(res.body.message).to.be.equal("Token de acesso ausente, inválido, expirado ou usuário do token não existe mais")
+                    expect(res.body).to.have.property("message");
+                    expect(res.body.message).to.be.equal("Token de acesso ausente, inválido, expirado ou usuário do token não existe mais");
 
                     cy.validarContrato(res, "post_produtos", 401).then( validacao => {
                         expect(validacao).to.be.equal("Contrato valido.")
@@ -78,5 +78,52 @@ describe.only("Testes para PRODUTOS", () => {
         //TODO esperando pelo Caio fazer a parte dos usuarios
     })
 
+
+    it("Fazer uma requesição de um produto expecifico", () => {
+        cy.fixture("existingProd").then((produto) => {
+            
+            cy.buscarProdutoExistente(produto.product_ID_Existente._id).then (res => {
+                expect(res.statusCode === 200);
+                expect(res.body).to.have.all.keys("nome", "preco", "descricao", "quantidade", "_id")
+                
+                cy.validarContrato(res, "get_produtos/_id", 200).then( validacao => {
+                    expect(validacao).to.be.equal("Contrato valido.")
+                })
+            })
+        })
+    })
+    
+    it("Deletar um produto temporario", () => {
+        let produto = Factory.geradorDeProdutos()
+        var id
+
+        cy.fixture("loginCredentials").then((usuario) => {
+            cy.logar(usuario.valido).then(login => {
+                bearer = login.body.authorization
+
+                cy.criarProduto(bearer, produto).then (prod => {
+                    id = prod.body._id
+
+                    cy.deletarProduto(bearer, id).then(res => {
+                        expect(res.statusCode === 200);
+                        expect(res.body).to.have.property("message");
+                        expect(res.body.message).to.be.equal("Registro excluído com sucesso");
+
+                        //cy.validarContrato(res, "delete_produtos", 200).then( validacao => {
+                        //    expect(validacao).to.be.equal("Contrato valido.")
+                        //})
+                    })
+                })
+            })
+        })
+    })
+    
+    it.skip("PUT?", () => {
+        //falta voia ; _ ;
+
+        //Criar produto
+        //Recuperar id do produto
+        //Editar alguma coisa
+    })
 
 })
