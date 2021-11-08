@@ -1,14 +1,22 @@
 import Base from './_base.page';
+const faker = require('faker');
+
 
 import loginCredentials from '../fixtures/loginCredentials'
 import ServeRestCadastrarUsuario from './serverest_cdusuario.page';
 import {LOGIN as LG} from './components/login.elements'
 import {HOMEPAGE_NAVBAR as HNAV} from './components/home_page.elements'
 import {HOMEPAGE as HP} from './components/home_page.elements'
+import {HOMEPAGE_NAOADMIN as HPNA} from './components/home_page.elements'
+import {HOMEPAGE_PRODUTOS as HPP} from './components/home_page.elements'
+
 
 var myModule = require('./serverest_cdusuario.page');
 var senha = myModule.newSenha;
 var usuarioFaker = myModule.newEmail;
+var name = myModule.newName;
+
+const randomProduct = `${faker.commerce.productName()}`;
 
 
 export default class ServeRestLogin extends Base {
@@ -62,7 +70,6 @@ export default class ServeRestLogin extends Base {
     }
 
     static logarSenhaErrada(senhaErrada) {
-
         super.typeValue(LG.INP_EMAIL, usuarioFaker)
         super.typeValue(LG.INP_PASSWORD, senhaErrada)
         super.clickOnElement(LG.BTN_LOGIN)
@@ -74,5 +81,35 @@ export default class ServeRestLogin extends Base {
      })
     }
 
+    static validarHomepageNaoAdmin() {
+        super.validarUrl('/home')
+        super.validarElemento(HNAV.BTN_HOME)
+        super.validarElemento(HPNA.BTN_LISTACOMPRAS)
+        super.validarElemento(HPNA.BTN_CARRINHO)
+        super.validarElemento(HNAV.BTN_LOGOUT)
+        super.validarElemento(HPNA.TXT_SEARCH)
+        super.validarElemento(HPNA.BTN_SEARCH)
+    }
 
-}
+    static validarDivsProdutos() {
+        super.validarElemento(HPP.IMG_PRODUCT)
+        super.validarElemento(HPP.TITLE_PRODUCT)
+        super.validarElemento(HPP.PRICE_PRODUCT)
+        super.validarElemento(HPP.BTN_ADDPRODUCT)
+    }
+
+
+    static validarValue() {
+        super.typeValue(HPNA.TXT_SEARCH, randomProduct)
+        cy.get('.form-control.my-5.mx-3.my-sm-0').should('have.attr', 'value', randomProduct)
+    }
+
+
+
+
+        
+        
+
+    }
+    
+    

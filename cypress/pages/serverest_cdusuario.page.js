@@ -11,6 +11,7 @@ export const newSenha = `${faker.internet.password()}`;
 
 
 
+
 export default class ServeRestCadastrarUsuario extends Base {
 
     
@@ -26,13 +27,25 @@ export default class ServeRestCadastrarUsuario extends Base {
         super.clickOnElement(CD.BTN_CADASTRE)
         super.validarUrl(CD.URL)
         
-        console.log(newName, newEmail, newSenha)
 
 
         super.typeValue(CD.ADD_NOME, newName)
         super.typeValue(CD.ADD_EMAIL, newEmail)
         super.typeValue(CD.ADD_SENHA, newSenha)
         super.clickOnElement(CD.ADD_ADMIN)
+        super.clickOnElement(CD.FIN_CADASTRO)
+    }
+
+    static realizar_cadastroNaoAdmin(){
+        super.clickOnElement(CD.BTN_CADASTRE)
+        super.validarUrl(CD.URL)
+        
+        console.log(newName, newEmail, newSenha)
+
+
+        super.typeValue(CD.ADD_NOME, newName)
+        super.typeValue(CD.ADD_EMAIL, newEmail)
+        super.typeValue(CD.ADD_SENHA, newSenha)
         super.clickOnElement(CD.FIN_CADASTRO)
     }
 

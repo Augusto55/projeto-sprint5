@@ -94,11 +94,21 @@ export default class Base {
 
   static validarElemento(elemento){
     this.getElement(elemento).should('be.visible', { timeout: Cypress.env('global_timeout') });
-    }
+  }
 
-    static verificarSeElementoNãoContem(element, element2) {
+  static verificarSeElementoNãoContem(element, element2) {
       this.getElement(element).should('not.contain', element2);
-    }
+  }
+
+  static validateElementValue(element, text, index = undefined) {
+    this.typeValue(element, text)
+    this.getElementText(element, index).then((value) => {
+    expect(value).to.contain('teste');
+
+    });
+  }
+
+  
   
   
 }

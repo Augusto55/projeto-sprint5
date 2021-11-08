@@ -4,36 +4,60 @@ import ServeRestLogin from '../pages/serverest_login.page'
 import ServeRestCadastrarUsuario from '../pages/serverest_cdusuario.page'
 
 describe('Testes Front ServeRest', () => {
+
     describe('Testes de login positivos', () => {
     before(() => {
         ServeRestLogin.acessarServeRest()
     })
-        
-        it('Deve cadastrar um usuário com propriedades de administrador', () => {
-            
+
+    it('Deve verificar se os campos para login estão adequados', () => {
+        ServeRestLogin.acessarServeRest()
+        ServeRestLogin.verificarLogin()
+    })
+
+
+
+    describe('Testes de login com um usuário com propriedades de administrador', () => {    
+        it('Deve cadastrar um usuário', () => {
             ServeRestCadastrarUsuario.realizar_cadastro()
             cy.wait(3000)
         })
+
         it('Deve logar com esse mesmo usuário', () => {
             ServeRestLogin.acessarServeRest()
             ServeRestCadastrarUsuario.login()
         })
 
-    
-        
-            
-        
-        it('Deve verificar se os campos para login estão adequados', () => {
-            ServeRestLogin.acessarServeRest()
-            ServeRestLogin.verificarLogin()
-        })
-
         it('Logar e validar elementos da página inicial', () => {
             ServeRestCadastrarUsuario.login()
-            
             ServeRestLogin.validarNavBarAdmin()
             ServeRestLogin.validarCorpoAdmin()
         })
+    })
+
+
+
+
+    describe('Testes de login com um usuário sem propriedades de administrador', () => {    
+        it.only('Deve cadastrar um usuário', () => {
+            ServeRestCadastrarUsuario.realizar_cadastroNaoAdmin()
+            cy.wait(3000)
+        })
+
+        it.only('Deve logar com esse mesmo usuário', () => {
+            cy.wait(2000)
+            ServeRestLogin.acessarServeRest()
+            ServeRestCadastrarUsuario.login()
+            cy.wait(2000)
+        })
+
+        it.only('Validar elementos da página inicial', () => {
+            ServeRestLogin.validarHomepageNaoAdmin()
+            ServeRestLogin.validarDivsProdutos()
+            ServeRestLogin.validarValue()
+        })
+    })
+         
     })
 
 
@@ -56,7 +80,7 @@ describe('Testes Front ServeRest', () => {
             ServeRestLogin.validarLoginInvalido()
         })
         
-        it.only('Deve tentar logar com um usuário com caracteres inválidos', () => {
+        it('Deve tentar logar com um usuário com caracteres inválidos', () => {
             ServeRestLogin.acessarServeRest()
             ServeRestLogin.logarUsuárioInexistente('asdad123')
             ServeRestLogin.validarAlert()
