@@ -72,7 +72,7 @@ export default class Base {
     this.getElement(element).should('exist', { timeout: Cypress.env('global_timeout') });
   }
 
-  static verifyIfElementDoesNotExists(element) {
+  static verifyIfElementDoesNotExist(element) {
     this.getElement(element).should('not.exist', { timeout: Cypress.env('global_timeout') });
   }
 
@@ -94,8 +94,16 @@ export default class Base {
 
   static validarElemento(elemento){
     this.getElement(elemento).should('be.visible', { timeout: Cypress.env('global_timeout') });
-    }
+  }
 
-  
-  
+  static verificarSeElementoNãoContemAtr(element, atr) {
+    cy.get(element).should('not.have.attr', atr)
+  }
+
+  static validateElementValue(element, text, index = undefined) {
+    this.typeValue(element, text)
+    this.getElementText(element, index).then((value) => {
+    expect(value).to.contain('teste');
+    });   
+  }
 }
