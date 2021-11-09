@@ -18,12 +18,12 @@ describe('Testes Front ServeRest', () => {
 
 
     describe('Testes de login com um usuário com propriedades de administrador', () => {    
-        it('Deve cadastrar um usuário', () => {
+        it.only('Deve cadastrar um usuário', () => {
             ServeRestCadastrarUsuario.realizar_cadastro()
             cy.wait(3000)
         })
 
-        it('Deve logar com esse mesmo usuário', () => {
+        it.only('Deve logar com esse mesmo usuário', () => {
             ServeRestLogin.acessarServeRest()
             ServeRestCadastrarUsuario.login()
             cy.wait(3000)
