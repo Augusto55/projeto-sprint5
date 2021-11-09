@@ -35,3 +35,5 @@ describe('Testes Front ServeRest', () => {
             ServeRestLogin.validarNavBar()
             ServeRestLogin.validarCorpo()
         })
+    })
+})

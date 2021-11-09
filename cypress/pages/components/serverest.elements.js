@@ -5,11 +5,14 @@ export const LOGIN = {
 }
 
 export const BODY_PROD = {
+    BTN_CADASTRAR : '[data-testid=cadastrarProdutos]',
     INP_NOME : '#nome',
     INP_PRECO : '[data-testid=preco]',
     INP_DESCRICAO : '[data-testid=descricao]',
     INP_QUANTIDADE : '[data-testid=quantity]',
-    BTN_CADASTRAR : '[data-testid=cadastrarProdutos]'
+    BTN_IMG: '[data-testid=imagem]',
+    BTN_CADASTRO : '[data-testid=cadastarProdutos]',
+    DIV_ERRO : '//*[@id="root"]/div/div/div/form/div[1]'
 }
 
 export const CAD_USUARIO = {
