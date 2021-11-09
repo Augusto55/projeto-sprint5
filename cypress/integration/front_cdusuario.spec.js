@@ -6,8 +6,10 @@ import ServeRestCadastrarUsuario from '../pages/serverest_cdusuario.page'
 describe('Testes Front ServeRest - Cadastro de usuário', () => {
     describe('Testes cadastro de usuário/Positivos', () => {
         describe('Cadastro de usuário com propriedades de administrador', () => {
-            it('Validar campos para realizar o cadastro', () => {
+            before(() => {
                 ServeRestLogin.acessarServeRest()
+            })
+            it('Validar campos para realizar o cadastro', () => {
                 ServeRestCadastrarUsuario.campos_cadastro()          
             })
             it('Deve cadastrar um usuário admin', () => {
