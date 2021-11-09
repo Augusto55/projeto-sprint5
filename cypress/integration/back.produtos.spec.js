@@ -74,11 +74,6 @@ describe("Testes para PRODUTOS", () => {
         })
     })
 
-    it.skip("Teste de criação com usuario normal", () => {
-        //TODO esperando pelo Caio fazer a parte dos usuarios
-    })
-
-
     it("Fazer uma requesição de um produto expecifico", () => {
         cy.fixture("existingProd").then((produto) => {
             
