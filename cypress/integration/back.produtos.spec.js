@@ -117,13 +117,4 @@ describe("Testes para PRODUTOS", () => {
             })
         })
     })
-    
-    it.skip("PUT?", () => {
-        //falta voia ; _ ;
-
-        //Criar produto
-        //Recuperar id do produto
-        //Editar alguma coisa
-    })
-
 })
