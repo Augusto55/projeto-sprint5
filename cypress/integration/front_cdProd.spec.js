@@ -32,3 +32,17 @@ describe('Testes Front Cadastro de Produtos ServeRest', () => {
     })
     
 })
+describe('testes front para não admins', () => {
+    before(() => {
+        ServeRestLogin.acessarServeRest();
+        ServeRestCadastrarUsuario.realizar_cadastroNaoAdmin();
+    })
+    beforeEach(() => {
+        cy.wait(500);
+        ServeRestLogin.acessarServeRest();
+        ServeRestCadastrarUsuario.loginNaoAdmin();
+    })
+    it('adicionar produtos à lista de compras', () =>{
+        .adicionarNaLista
+    })
+})

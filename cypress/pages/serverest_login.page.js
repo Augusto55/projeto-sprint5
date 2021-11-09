@@ -103,13 +103,8 @@ export default class ServeRestLogin extends Base {
         super.typeValue(HPNA.TXT_SEARCH, randomProduct)
         cy.get('.form-control.my-5.mx-3.my-sm-0').should('have.attr', 'value', randomProduct)
     }
+   
 
-
-
-
-        
-        
-
-    }
+}
     
     
