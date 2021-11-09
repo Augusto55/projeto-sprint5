@@ -1,8 +1,11 @@
 import Base from './_base.page';
+
 const faker = require('faker');
 
-import { CAD_USUARIO as CD} from './components/serverest_cdusuario.elements';
-import {LOGIN as LG} from './components/serverest_login.elements';
+const faker = require('faker');
+import { CAD_USUARIO as CD} from './components/serverest.elements';
+import {LOGIN as LG} from './components/serverest.elements';
+
 
 export const newName = `${faker.name.findName()}`;
 export const newEmail = `${faker.internet.email()}`;
@@ -11,6 +14,7 @@ export const newSenha = `${faker.internet.password()}`;
 const newName2 = `${faker.name.findName()}`;
 const newEmail2 = `${faker.internet.email()}`;
 const newSenha2 = `${faker.internet.password()}`;
+
 
 export default class ServeRestCadastrarUsuario extends Base {
     static campos_cadastro() {
@@ -51,7 +55,7 @@ export default class ServeRestCadastrarUsuario extends Base {
         super.typeValue(LG.INP_PASSWORD, newSenha2)
         super.clickOnElement(LG.BTN_LOGIN)
     }
- 
+  
     /****************************************************************************/
     
     static nomeObrigatorio(){

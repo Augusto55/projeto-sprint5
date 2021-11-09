@@ -1,25 +1,111 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+/// <reference types="cypress"/>
+
+import Ajv from "ajv"
+const ajv = new Ajv({allErrors: true, verbose: true, strict: false})
+
+//====================================================//
+//                      LOGIN                         //
+//====================================================//
+Cypress.Commands.add("pegarUserADM", () => {
+    cy.request({
+        method: "GET",
+        url: `${Cypress.env("base_url")}/usuarios`,
+        failOnStatusCode: false
+    }).then( res => {
+        expect(res.statusCode).to.be.equal(200);
+        expect(res.body).to.have.property("quantidade")
+        expect(res.body.usuarios).to.be.a("array")
+    
+        for(var i = 0; i < res.body.usuarios.length; i++) {
+            if(res.body.usuarios[i].administrador === "true") {
+                return res.body.usuarios[i]
+            }
+        }
+    })
+})
+
+Cypress.Commands.add("logar", usuario => {
+    return cy.request({
+        method: "POST",
+        url: `${Cypress.env("base_url")}/login`,
+        failOnStatusCode: false,
+        body: usuario
+    })
+})
+
+//====================================================//
+//                     PRODUTOS                       //
+//====================================================//
+Cypress.Commands.add("buscarProdutos", () => {
+    cy.request({
+        method: "GET",
+        url: `${Cypress.env("base_url")}/produtos`,
+        failOnStatusCode: false
+    })
+})
+
+Cypress.Commands.add("buscarProdutoExistente", (_id) => {
+    cy.request({
+        method: "GET",
+        url: `${Cypress.env("base_url")}/produtos/${_id}`,
+        failOnStatusCode: false
+    })
+})
+
+Cypress.Commands.add("deletarProduto", (bearer ,_id) => {
+    cy.request({
+        method: "DELETE",
+        url: `${Cypress.env("base_url")}/produtos/${_id}`,
+        failOnStatusCode: false,
+        headers: {Authorization: bearer}
+    })
+})
+
+Cypress.Commands.add("editarProduto", (bearer, _id) => {
+    cy.request({
+        method: "PUT",
+        url: `${Cypress.env("base_url")}/produtos/${_id}`,
+        failOnStatusCode: false,
+        headers: {Authorization: bearer}
+    })
+})
+
+Cypress.Commands.add("criarProduto", (bearer, produto) => {
+    return cy.request({
+        method: "POST",
+        url: `${Cypress.env("base_url")}/produtos`,
+        failOnStatusCode: false,
+        headers: {Authorization: bearer},
+        body: produto
+    })
+})
+//====================================================//
+//                     USUARIOS                       //
+//====================================================//
+
+//====================================================//
+//                     CARRINHO                       //
+//====================================================//
+
+//====================================================//
+//                     VALIDAÇÃO                      //
+//====================================================//
+Cypress.Commands.add("validarContrato", (res, schema, status) => {
+    cy.fixture(`schema/${schema}/${status}.json`).then( schema => {
+        //res = resposta | rota pasta | arquivo .json
+        const validate = ajv.compile(schema)
+        const valid = validate(res.body)
+        
+        if(!valid ){
+            var errors = ""
+            for(let each in validate.errors) {
+                let err = validate.errors[each]
+                errors += `\n${err.instancePath} ${err.message}, but recive ${typeof err.data}` 
+                //Informa o local do erro //Informa o que deveria ser informado //O que recebeu
+            }
+
+            throw new Error(`Contrato inválido, por favor cheque: ${errors}`)
+        }
+        return "Contrato valido."
+    })
+})
