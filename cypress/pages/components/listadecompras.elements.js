@@ -9,5 +9,6 @@ export const LISTADECOMPRAS = {
 export const PRODUTO_LISTADECOMPRAS = {
     DESC_PRODUTO : '[data-testid="shopping-cart-product-name"]',
     COL_PRODUTO : '.card.col-3',
-    IMAGE_PRODUTO : '.imagem'
+    PRECO_PRODUTO : '//div[@id="root"]/div/div/div/div/div/section/div/div/div[2]/p',
+    IMAGEM_PRODUTO : '.imagem'
 }
