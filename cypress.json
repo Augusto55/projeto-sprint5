@@ -1,5 +1,5 @@
 {
-	"env": {
+  "env": {
 		"base_url": "localhost:3000"
 	}
 }
