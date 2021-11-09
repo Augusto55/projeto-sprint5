@@ -19,7 +19,7 @@ describe('Testes Front ServeRest', () => {
 
     describe('Testes de login com um usuário com propriedades de administrador', () => {    
         it('Deve cadastrar um usuário', () => {
-            ServeRestCadastrarUsuario.realizar_cadastro()
+            ServeRestCadastrarUsuario.realizar_cadastroNaoAdmin()
             cy.wait(3000)
         })
 
