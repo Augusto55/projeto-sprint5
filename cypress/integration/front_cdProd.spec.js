@@ -43,6 +43,6 @@ describe('testes front para não admins', () => {
         ServeRestCadastrarUsuario.loginNaoAdmin();
     })
     it('adicionar produtos à lista de compras', () =>{
-        .adicionarNaLista
+        //.adicionarNaLista
     })
 })

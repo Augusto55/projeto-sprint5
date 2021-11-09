@@ -92,8 +92,8 @@ export default class Base {
     cy.url(`${Cypress.env('baseURL_front')}`).should('include', url) 
   }
 
-  static validarElemento(elemento){
-    this.getElement(elemento).should('be.visible', { timeout: Cypress.env('global_timeout') });
+  static validarElemento(elemento, index){
+    this.getElement(elemento, index).should('be.visible', { timeout: Cypress.env('global_timeout') });
   }
 
 
