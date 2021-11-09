@@ -24,8 +24,11 @@ describe('Testes Front Cadastro de Produtos ServeRest', () => {
         SR_CadastroProduto.verificarErros()
 
     })
-    it.only('modificar produtos', () => {
-        SR_CadastroProduto.modificarProdutos()
+    it('excluir produtos(as vezes)', () => {
+        SR_CadastroProduto.excluirProdutos()
+    })
+    it('editar produtos(nem funciona)', () => {
+        SR_CadastroProduto.editarProdutos()
     })
     
 })
