@@ -25,6 +25,10 @@ export default class ServeRestLogin extends Base {
         cy.visit(`${Cypress.env('baseURL_front')}`)
     }
 
+    static acessarServeRestCadastro(){
+        cy.visit(`${Cypress.env('baseURL_front_cadastrar')}`)
+    }
+
     static logarUsuárioInexistente(usuario) {
 
         super.typeValue(LG.INP_EMAIL, usuario)
