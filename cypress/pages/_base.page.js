@@ -96,6 +96,7 @@ export default class Base {
     this.getElement(elemento).should('be.visible', { timeout: Cypress.env('global_timeout') });
   }
 
+
   static verificarSeElementoNãoContemAtr(element, atr) {
     cy.get(element).should('not.have.attr', atr)
   }
@@ -104,6 +105,8 @@ export default class Base {
     this.typeValue(element, text)
     this.getElementText(element, index).then((value) => {
     expect(value).to.contain('teste');
-    });   
+
+    });
   }
+
 }
