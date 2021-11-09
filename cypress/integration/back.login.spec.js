@@ -61,7 +61,7 @@ describe("Testes para LOGIN", () => {
         })
     }),
 
-    it(`📌 Deve tentar login com erro - SEM EMAIL\n(DECIDIR O QUE FAZER SOBRE O 'BUG')`, () => {
+    it(`Deve tentar login com erro - SEM EMAIL`, () => {
         cy.fixture("loginCredentials").then((usuario) => {
             cy.logar(usuario.emailVAZIO).then(res => {
                 expect(res.statusCode === 400);
@@ -75,7 +75,7 @@ describe("Testes para LOGIN", () => {
         })
     })
 
-    it(`📌 Deve tentar login com erro - SEM SENHA\n(DECIDIR O QUE FAZER SOBRE O 'BUG')`, () => {
+    it(`Deve tentar login com erro - SEM SENHA`, () => {
         cy.fixture("loginCredentials").then((usuario) => {
             cy.logar(usuario.senhaVAZIA).then(res => {
                 expect(res.statusCode === 400);
