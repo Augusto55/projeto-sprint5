@@ -8,9 +8,6 @@ describe('Testes Front ServeRest - Cadastro de usuário', () => {
         before(() => {
             ServeRestLogin.acessarServeRest()
         })
-        it('Cadastrar um novo usuário', () => {
-            ServeRestCadastrarUsuario.entrar_cadastro()
-        })
         it('Validar campos para realizar o cadastro', () => {
             ServeRestCadastrarUsuario.campos_cadastro()
         })

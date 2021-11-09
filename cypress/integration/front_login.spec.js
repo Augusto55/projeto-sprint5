@@ -80,6 +80,7 @@ describe('Testes Front ServeRest', () => {
             ServeRestLogin.logarSenhaErrada('senhaerrada')
             ServeRestLogin.validarLoginInvalido()
         })
+
         
         it('Deve tentar logar com um usuário com caracteres inválidos', () => {
             ServeRestLogin.acessarServeRest()
@@ -88,5 +89,4 @@ describe('Testes Front ServeRest', () => {
         })
     })
     
-
 })
