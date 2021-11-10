@@ -67,7 +67,7 @@ export default class ServeRestLogin extends Base {
         super.validarElemento(HP.BTN_RELATORIOS)
         super.validateElementText(HP.DIV_PRINCIPALTXT, `Bem Vindo  ${name}`)
         super.validateElementText(HP.TXT_SUBTITULO, 'Este é seu sistema para administrar seu ecommerce.')
-}
+    }
 
     static validarLoginInvalido() {
         super.validateElementText(LG.ERROR_WINDOW, 'Email e/ou senha inválidos')
@@ -102,13 +102,8 @@ export default class ServeRestLogin extends Base {
         super.validarElemento(HPP.BTN_ADDPRODUCT)
     }
 
-
     static validarValue() {
         super.typeValue(HPNA.TXT_SEARCH, randomProduct)
         cy.get('.form-control.my-5.mx-3.my-sm-0').should('have.attr', 'value', randomProduct)
     }
-   
-
 }
-    
-    

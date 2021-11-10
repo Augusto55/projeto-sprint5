@@ -6,8 +6,8 @@ import ServeRestCadastrarUsuario from '../pages/serverest_cdusuario.page'
 
 describe('Testes Front Cadastro de Produtos ServeRest', () => {
     before(() => {
-        ServeRestLogin.acessarServeRest();
-        ServeRestCadastrarUsuario.realizar_cadastro();
+        ServeRestLogin.acessarServeRestCadastro()
+        ServeRestCadastrarUsuario.realizar_cadastroAdmin();
         cy.wait(1000)            
     })
     beforeEach(() => {
@@ -15,10 +15,8 @@ describe('Testes Front Cadastro de Produtos ServeRest', () => {
         ServeRestLogin.acessarServeRest()
         ServeRestCadastrarUsuario.login();
     })
-
     it('cadastro correto', () => {
         SR_CadastroProduto.cadastrar() 
-    
     })
     it('cadastro com campos incorretos', () => {
         SR_CadastroProduto.verificarErros()
@@ -29,17 +27,17 @@ describe('Testes Front Cadastro de Produtos ServeRest', () => {
     })
     it('editar produtos(nem funciona)', () => {
         SR_CadastroProduto.editarProdutos()
-    })
-    
+    })    
 })
+
 describe('testes front para não admins', () => {
     before(() => {
-        ServeRestLogin.acessarServeRest();
+        ServeRestLogin.acessarServeRestCadastro()
         ServeRestCadastrarUsuario.realizar_cadastroNaoAdmin();
     })
     beforeEach(() => {
         cy.wait(500);
-        ServeRestLogin.acessarServeRest();
+        ServeRestLogin.acessarServeRestCadastro()
         ServeRestCadastrarUsuario.loginNaoAdmin();
     })
     it('adicionar produtos à lista de compras', () =>{
