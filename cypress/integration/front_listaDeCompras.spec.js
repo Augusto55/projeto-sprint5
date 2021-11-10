@@ -25,10 +25,7 @@ describe('Testes Front ServeRest', () => {
         
     })
     describe('Compras positivas', () =>{
-        before(() => {
-            ServeRestLogin.acessarServeRestCadastro()
-            ServeRestCadastrarUsuario.realizar_cadastroNaoAdmin();
-        })
+
         beforeEach(() => {
             cy.wait(1500);
             ServeRestLogin.acessarServeRest()
