@@ -1,14 +1,11 @@
 import Base from './_base.page';
 const faker = require('faker');
 
-
-import loginCredentials from '../fixtures/loginCredentials'
-import ServeRestCadastrarUsuario from './serverest_cdusuario.page';
-import {LOGIN as LG} from './components/login.elements'
-import {HOMEPAGE_NAVBAR as HNAV} from './components/home_page.elements'
-import {HOMEPAGE as HP} from './components/home_page.elements'
-import {HOMEPAGE_NAOADMIN as HPNA} from './components/home_page.elements'
-import {HOMEPAGE_PRODUTOS as HPP} from './components/home_page.elements'
+import {LOGIN as LG} from './components/serverest_login.elements'
+import {HOMEPAGE_NAVBAR as HNAV} from './components/serverest_homePage.elements'
+import {HOMEPAGE as HP} from './components/serverest_homePage.elements'
+import {HOMEPAGE_NAOADMIN as HPNA} from './components/serverest_homePage.elements'
+import {HOMEPAGE_PRODUTOS as HPP} from './components/serverest_homePage.elements'
 
 
 var myModule = require('./serverest_cdusuario.page');

@@ -2,7 +2,7 @@
 
 var bearer
 
-describe("Testes para LOGIN", () => {
+describe("Testes de API ServeRest - LOGIN", () => {
     it(`Tentar login com um ADM \nTentar login com usuario`, () => {
         cy.fixture("loginCredentials").then((usuario) => {
             cy.logar(usuario.valido).then(res => {
@@ -17,7 +17,7 @@ describe("Testes para LOGIN", () => {
                 })
             })
         })
-    }),
+    })
 
     it("Deve tentar login com email anormal com erro", () => {
         cy.fixture("loginCredentials").then((usuario) => {
@@ -31,7 +31,7 @@ describe("Testes para LOGIN", () => {
                 })
             })
         })
-    }),
+    })
 
     it("Deve tentar login com caixa de email vazia", () => {
         cy.fixture("loginCredentials").then((usuario) => {
@@ -45,7 +45,7 @@ describe("Testes para LOGIN", () => {
                 })
             })
         })
-    }),
+    })
 
     it("Deve tentar login com caixa de senha vazia", () => {
         cy.fixture("loginCredentials").then((usuario) => {
@@ -59,7 +59,7 @@ describe("Testes para LOGIN", () => {
                 })
             })
         })
-    }),
+    })
 
     it(`Deve tentar login com erro - SEM EMAIL`, () => {
         cy.fixture("loginCredentials").then((usuario) => {

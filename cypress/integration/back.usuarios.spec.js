@@ -1,6 +1,6 @@
 /// <reference types="cypress"/>
 
-describe("Testes para USUARIOS", () => {
+describe("Testes de API ServeRest - USUARIOS", () => {
     it("Deve validar a resposta de GET usuarios", () => {
         cy.listarUSERS().then( res => {
             expect(res.statusCode === 200);

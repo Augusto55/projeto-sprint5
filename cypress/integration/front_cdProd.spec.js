@@ -4,33 +4,32 @@ import ServeRestLogin from '../pages/serverest_login.page'
 import SR_CadastroProduto from '../pages/serverest_prod.page'
 import ServeRestCadastrarUsuario from '../pages/serverest_cdusuario.page'
 
-describe('Testes Front Cadastro de Produtos ServeRest', () => {
+describe('Testes Front ServeRest - CADASTRO DE PRODUTOS', () => {
     before(() => {
         ServeRestLogin.acessarServeRestCadastro()
         ServeRestCadastrarUsuario.realizar_cadastroAdmin();
-        cy.wait(1000)            
+        cy.wait(1500)            
     })
-    
     beforeEach(() => {
-        cy.wait(500);
+        cy.wait(500)
         ServeRestLogin.acessarServeRest()
         ServeRestCadastrarUsuario.login();
     })
 
-    it('cadastro correto', () => {
+    it('Deve realizar cadastro corretamente', () => {
         SR_CadastroProduto.cadastrar() 
     })
 
-    it('cadastro com campos vazios', () => {
+    it('Deve realizar cadastro com campos vazios', () => {
         SR_CadastroProduto.verificarErros()
 
     })
 
-    it('excluir produtos(as vezes)', () => {
+    it('Deve excluir um produtos', () => {
         SR_CadastroProduto.excluirProdutos()
     })
 
-    it('editar produtos(nem funciona)', () => {
+    it('Deve editar um produto(não está funcionando)', () => {
         SR_CadastroProduto.editarProdutos()
     })    
 })

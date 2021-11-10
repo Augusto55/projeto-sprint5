@@ -1,10 +1,10 @@
 import Base from './_base.page';
 const Faker = require('faker');
 
-import {HOMEPAGE_NAOADMIN as HPNA} from './components/home_page.elements'
-import {HOMEPAGE_PRODUTOS as HPP} from './components/home_page.elements'
-import {LISTADECOMPRAS as LC} from './components/listadecompras.elements'
-import {PRODUTO_LISTADECOMPRAS as PLC} from './components/listadecompras.elements'
+import {HOMEPAGE_NAOADMIN as HPNA} from './components/serverest_homePage.elements'
+import {HOMEPAGE_PRODUTOS as HPP} from './components/serverest_homePage.elements'
+import {LISTADECOMPRAS as LC} from './components/serverest_listaCompras.elements'
+import {PRODUTO_LISTADECOMPRAS as PLC} from './components/serverest_listaCompras.elements'
 
 export default class ServeRestCompra extends Base {
     static adicionarNaLista() {

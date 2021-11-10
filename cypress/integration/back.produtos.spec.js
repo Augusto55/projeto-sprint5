@@ -4,7 +4,7 @@ import Factory from "../dynamics/factory.js"
 
 var bearer
 
-describe("Testes para PRODUTOS", () => {
+describe("Testes de API ServeRest - PRODUTOS", () => {
     it(`Requesição GET na rota dos produtos \n(Lista todos produtos disponiveis)`, () => {
         cy.buscarProdutos().then( res => {
             expect(res.statusCode === 200)

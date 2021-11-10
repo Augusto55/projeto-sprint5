@@ -1,9 +1,8 @@
 /// <reference types="cypress" />
 
 import ServeRestLogin from '../pages/serverest_login.page'
-import ServeRestCadastrarUsuario from '../pages/serverest_cdusuario.page'
 
-describe('Testes Front ServeRest', () => {
+describe('Testes Front ServeRest - LOGIN', () => {
     describe('Testes de login positivos', () => {
         before(() => {
             ServeRestLogin.acessarServeRest()
@@ -21,7 +20,6 @@ describe('Testes Front ServeRest', () => {
             ServeRestLogin.acessarServeRest()
         })
         it('Deve logar com um usuário que não existe', () => {
-            
             ServeRestLogin.logarUsuárioInexistente('sadjabdba22@qa.com')
             ServeRestLogin.validarLoginInvalido()
         })

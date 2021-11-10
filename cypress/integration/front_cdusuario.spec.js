@@ -3,7 +3,7 @@
 import ServeRestLogin from '../pages/serverest_login.page'
 import ServeRestCadastrarUsuario from '../pages/serverest_cdusuario.page'
 
-describe('Testes Front ServeRest - Cadastro de usuário', () => {
+describe('Testes Front ServeRest - CADASTRO DE USUARIOS', () => {
     describe('Testes cadastro de usuário/Positivos', () => {
         before(() => {
             ServeRestLogin.acessarServeRest()
@@ -15,18 +15,17 @@ describe('Testes Front ServeRest - Cadastro de usuário', () => {
             it('Deve cadastrar um usuário admin', () => {
                 ServeRestLogin.acessarServeRestCadastro()
                 ServeRestCadastrarUsuario.realizar_cadastroAdmin()
-                cy.wait(3000)           
+                cy.wait(1500)           
             })
             it('Deve logar com esse mesmo usuário admin', () => {
                 ServeRestLogin.acessarServeRest()
                 ServeRestCadastrarUsuario.login()
-                cy.wait(3000)
+                cy.wait(1500)
             })
             it('Deve validar elementos da página inicial', () => {
-                //ServeRestCadastrarUsuario.login()
                 ServeRestLogin.validarNavBarAdmin()
                 ServeRestLogin.validarCorpoAdmin()
-                cy.wait(3000)
+                cy.wait(1500)
             })
         })
 
@@ -34,13 +33,13 @@ describe('Testes Front ServeRest - Cadastro de usuário', () => {
             it('Deve cadastrar um usuário não administrador', () => {
                 ServeRestLogin.acessarServeRestCadastro()
                 ServeRestCadastrarUsuario.realizar_cadastroNaoAdmin()
-                cy.wait(3000)
+                cy.wait(1500)
             })
 
             it('Deve logar com esse mesmo usuário', () => {
                 ServeRestLogin.acessarServeRest()
                 ServeRestCadastrarUsuario.loginNaoAdmin()
-                cy.wait(3000)
+                cy.wait(1500)
             })
             it('Validar elementos da página inicial', () => {
                 ServeRestLogin.validarHomepageNaoAdmin()

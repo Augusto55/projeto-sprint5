@@ -7,5 +7,6 @@ export const LOGIN = {
     IMG             : '.imagem',
     TXT_LOGIN       : '.font-robot',
     TXT_CADASTRO    : '[class="message form-text"]',
-    VALUES          : '[value=""]'
+    VALUES          : '.value',
+    ERROR_WINDOW    : '.alert.alert-secondary.alert-dismissible'
 }

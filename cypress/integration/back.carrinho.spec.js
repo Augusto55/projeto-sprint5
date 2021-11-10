@@ -4,7 +4,7 @@ var idUsuario
 var carrinho
 var bearer
 
-describe("Testes para CARRINHO", () => {
+describe("Testes de API ServeRest - CARRINHO", () => {
     it("Deve utilizar GET para listar os todos os carrinhos disponiveis", () => {
         cy.buscarCarrinho().then (res => {
             expect(res.statusCode === 200)
@@ -18,7 +18,6 @@ describe("Testes para CARRINHO", () => {
             expect(res.body.carrinhos[0].precoTotal).to.be.a("number")
             expect(res.body.carrinhos[0].quantidadeTotal).to.be.a("number")
             expect(res.body.carrinhos[0]._id).to.be.a("string")
-            //expect(res.body.carrinhos[0].idUsusario).to.be.a("string")
         })
     })
 })

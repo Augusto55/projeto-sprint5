@@ -1,7 +1,6 @@
 import faker from "faker"
 
 export default class Factory {
-
     static geradorDeProdutos() {
         return {
             "nome": `${faker.commerce.product()} ${faker.commerce.color()}`,

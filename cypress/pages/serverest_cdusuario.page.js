@@ -1,8 +1,8 @@
 import Base from './_base.page';
 
 const faker = require('faker');
-import { CAD_USUARIO as CD} from './components/serverest.elements';
-import {LOGIN as LG} from './components/serverest.elements';
+import {CAD_USUARIO as CD} from './components/serverest_cdusuario.elements';
+import {LOGIN as LG} from './components/serverest_login.elements';
 
 
 export const newName = `${faker.name.findName()}`;

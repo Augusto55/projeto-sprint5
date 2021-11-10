@@ -1,7 +1,7 @@
 import Faker from 'faker';
 import Base from './_base.page';
 
-import { BODY_PROD as BP} from './components/produtos.elements';
+import {BODY_PROD as BP} from './components/serverest_prod.elements';
 
 
 export default class SR_CadastroProduto extends Base {

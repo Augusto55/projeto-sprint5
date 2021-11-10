@@ -1,4 +1,4 @@
-export default class Base {
+export default class Base{
   static getElement(element, index = undefined) {
     let elem;
 
@@ -108,5 +108,4 @@ export default class Base {
 
     });
   }
-
 }
