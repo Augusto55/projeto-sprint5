@@ -5,13 +5,13 @@ import ServeRestCadastrarUsuario from '../pages/serverest_cdusuario.page'
 
 describe('Testes Front ServeRest - Cadastro de usuário', () => {
     describe('Testes cadastro de usuário/Positivos', () => {
+        before(() => {
+            ServeRestLogin.acessarServeRest()
+        })
+        it('Validar campos para realizar o cadastro', () => {
+            ServeRestCadastrarUsuario.campos_cadastro()          
+        })
         describe('Cadastro de usuário com propriedades de administrador', () => {
-            before(() => {
-                ServeRestLogin.acessarServeRest()
-            })
-            it('Validar campos para realizar o cadastro', () => {
-                ServeRestCadastrarUsuario.campos_cadastro()          
-            })
             it('Deve cadastrar um usuário admin', () => {
                 ServeRestLogin.acessarServeRestCadastro()
                 ServeRestCadastrarUsuario.realizar_cadastroAdmin()
@@ -54,6 +54,17 @@ describe('Testes Front ServeRest - Cadastro de usuário', () => {
             it('Deve cadastrar um usuário com a senha em branco', () => {
                 ServeRestLogin.acessarServeRestCadastro()
                 ServeRestCadastrarUsuario.passwordObrigatorio()
+            })
+        })
+        describe('Testes cadastro de usuário com Email inválido', () => {
+            it('Deve cadastrar um usuário com Email inválido', () => {
+                ServeRestLogin.acessarServeRestCadastro()
+                ServeRestCadastrarUsuario.emailFaltandoDados('testando@qa')
+            })
+            it('Deve cadastrar um usuário sem inclua um "@" no endereço de e-mail.', () => {
+                ServeRestLogin.acessarServeRestCadastro()
+                ServeRestCadastrarUsuario.emailFaltandoDados2('joaohotmail.com')
+                ServeRestCadastrarUsuario.validarAlert()
             })
         })
     })

@@ -80,4 +80,30 @@ export default class ServeRestCadastrarUsuario extends Base {
         super.validarElemento(CD.INP_ALERT)
         super.validateElementText(CD.TXT_ALERT, 'Password é obrigatório')
     }
+
+    /****************************************************************************/
+
+    static emailFaltandoDados(usuario){
+        super.validarUrl(CD.URL)
+        super.typeValue(CD.ADD_NOME, newName)
+        super.typeValue(LG.INP_EMAIL, usuario)
+        super.typeValue(CD.ADD_SENHA, newSenha)
+        super.clickOnElement(CD.FIN_CADASTRO)
+        super.validarElemento(CD.INP_ALERT)
+        super.validateElementText(CD.TXT_ALERT, 'Email deve ser um email válido')
+    }
+
+    static emailFaltandoDados2(usuario){
+        super.validarUrl(CD.URL)
+        super.typeValue(CD.ADD_NOME, newName)
+        super.typeValue(LG.INP_EMAIL, usuario)
+        super.typeValue(CD.ADD_SENHA, newSenha)
+        super.clickOnElement(CD.FIN_CADASTRO)
+    }
+
+    static validarAlert() {
+        cy.on('window:alert', (str) => {
+            expect(str).to.contain(`Inclua um "@" no endereço de e-mail.`)
+     })
+    }
 }
