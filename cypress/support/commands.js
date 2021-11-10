@@ -82,11 +82,43 @@ Cypress.Commands.add("criarProduto", (bearer, produto) => {
 //====================================================//
 //                     USUARIOS                       //
 //====================================================//
+Cypress.Commands.add("listarUSERS", () => {
+    return cy.request({
+        method: "GET",
+        url: `${Cypress.env("base_url")}/usuarios`,
+        failOnStatusCode: true
+    })
+})
 
+Cypress.Commands.add("pegarUserExpecifico", (usuario) => {
+    return cy.request({
+        method: "GET",
+        url: `${Cypress.env("base_url")}/usuarios`,
+        failOnStatusCode: false,
+        body: usuario
+    })
+})
 //====================================================//
 //                     CARRINHO                       //
 //====================================================//
+Cypress.Commands.add("buscarCarrinho", (carrinho) => {
+    cy.request({
+        method: "GET",
+        url: `${Cypress.env("base_url")}/carrinhos`,
+        failOnStatusCode: false,
+        body: carrinho
+    })
+})
 
+Cypress.Commands.add("cadastrarCarrinho", (bearer, produto) => {
+    return cy.request({
+        method: "POST",
+        url: `${Cypress.env("base_url")}/carrinho`,
+        failOnStatusCode: false,
+        headers: {Authorization: bearer},
+        body: produto
+    })
+})
 //====================================================//
 //                     VALIDAÇÃO                      //
 //====================================================//
