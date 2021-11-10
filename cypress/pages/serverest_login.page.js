@@ -55,8 +55,7 @@ export default class ServeRestLogin extends Base {
         super.validarElemento(HNAV.BTN_LISTARPRODUTOS)
         super.validarElemento(HNAV.BTN_RELATORIOS)
         super.validarElemento(HNAV.BTN_HOME)
-        super.validarElemento(HNAV.BTN_LOGOUT)
-         
+        super.validarElemento(HNAV.BTN_LOGOUT)    
     }
 
     static validarCorpoAdmin() {
