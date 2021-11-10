@@ -1,7 +1,7 @@
 export const LISTADECOMPRAS = {
     BTN_HOMEPAGE : '[data-testid="paginaInicial"]',
     BTN_ADDTOCART : '[data-testid="adicionar carrinho"]',
-    BTN_LIMPARLISTA : '[class="btn btn-primary"]',
+    BTN_LIMPARLISTA : '[data-testid=limparLista]',
     BTN_INC : '[data-testid="product-increase-quantity"]',
     BTN_DEC : '[data-testid="product-decrease-quantity"]'
 }

@@ -17,10 +17,39 @@ describe('Testes Front ServeRest', () => {
         it('Deve realizar uma compra e validar todas as etapas', () => {
             ServeRestLogin.validarHomepageNaoAdmin()
             ServeRestLogin.validarDivsProdutos()
-            ServeRestCompra.adicionarNaLista(0)
+            ServeRestCompra.adicionarNaLista()
             cy.wait(3000)
             ServeRestCompra.validarListaDeCompras()
             ServeRestCompra.validarProduto()
-        })  
+        })
+        
+    })
+    describe('Compras positivas', () =>{
+        before(() => {
+            ServeRestLogin.acessarServeRestCadastro()
+            ServeRestCadastrarUsuario.realizar_cadastroNaoAdmin();
+        })
+        beforeEach(() => {
+            cy.wait(1500);
+            ServeRestLogin.acessarServeRest()
+            ServeRestCadastrarUsuario.loginNaoAdmin();
+        })
+        it('realiza caminho completo ate adicionar carrinho', ()=>{
+            //as proximas 2 linhas podem ser replicadas diversas vezes para adicionar mais produtos
+            ServeRestCompra.adicionarNaLista()
+            cy.wait(1000)
+            ServeRestCompra.adicionarNaLista()
+            cy.wait(1000)
+            ServeRestCompra.adicionarNaLista()
+            cy.wait(1000)
+            ServeRestCompra.mandarParaCarrinho()
+        })
+        it('adicionar itens e limpar a lista', () => {
+            ServeRestCompra.adicionarNaLista()
+            cy.wait(1000)
+            ServeRestCompra.adicionarNaLista()
+            cy.wait(1000)
+            ServeRestCompra.limparLista()
+        })
     })
 })
