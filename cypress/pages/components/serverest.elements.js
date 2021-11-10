@@ -1,7 +1,13 @@
 export const LOGIN = {
-    INP_EMAIL : '#email',
-    INP_PASSWORD : '#password',
-    BTN_LOGIN : '[data-testid="entrar"]'
+    BTN_CADASTRE    : '.btn.btn-link',
+    URL             : '/login',
+    INP_EMAIL       : '#email',
+    INP_PASSWORD    : '#password',
+    BTN_LOGIN       : '[data-testid="entrar"]',
+    IMG             : '.imagem',
+    TXT_LOGIN       : '.font-robot',
+    TXT_CADASTRO    : '[class="message form-text"]',
+    VALUES          : '[value=""]'
 }
 
 export const BODY_PROD = {
@@ -26,5 +32,8 @@ export const CAD_USUARIO = {
     ADD_EMAIL       : '[data-testid=email]', 
     ADD_SENHA       : '[data-testid=password]',
     ADD_ADMIN       : '[data-testid=checkbox]',
-    FIN_CADASTRO    : '[data-testid=cadastrar]'
+    FIN_CADASTRO    : '[data-testid=cadastrar]',
+
+    INP_ALERT       : '.alert',
+    TXT_ALERT       : '.alert > :nth-child(2)'
 }

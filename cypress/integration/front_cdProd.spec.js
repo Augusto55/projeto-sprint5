@@ -6,8 +6,8 @@ import ServeRestCadastrarUsuario from '../pages/serverest_cdusuario.page'
 
 describe('Testes Front Cadastro de Produtos ServeRest', () => {
     before(() => {
-        ServeRestLogin.acessarServeRest();
-        ServeRestCadastrarUsuario.realizar_cadastro();
+        ServeRestLogin.acessarServeRestCadastro()
+        ServeRestCadastrarUsuario.realizar_cadastroAdmin();
         cy.wait(1000)            
     })
     beforeEach(() => {
@@ -31,4 +31,18 @@ describe('Testes Front Cadastro de Produtos ServeRest', () => {
         SR_CadastroProduto.editarProdutos()
     })
     
+})
+describe('testes front para não admins', () => {
+    before(() => {
+        ServeRestLogin.acessarServeRestCadastro()
+        ServeRestCadastrarUsuario.realizar_cadastroNaoAdmin();
+    })
+    beforeEach(() => {
+        cy.wait(500);
+        ServeRestLogin.acessarServeRestCadastro()
+        ServeRestCadastrarUsuario.loginNaoAdmin();
+    })
+    it('adicionar produtos à lista de compras', () =>{
+        //.adicionarNaLista
+    })
 })

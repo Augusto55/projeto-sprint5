@@ -43,15 +43,15 @@ describe('Testes Front ServeRest - Cadastro de usuário', () => {
     
     describe('Testes cadastro de usuário/Negativos', () => {    
         describe('Testes cadastro de usuário deixando algum campo em branco', () => {
-            it('Deve com cadastrar um usuário com o nome em branco', () => {
+            it('Deve cadastrar um usuário com o nome em branco', () => {
                 ServeRestLogin.acessarServeRestCadastro()
                 ServeRestCadastrarUsuario.nomeObrigatorio()
             })
-            it('Deve com cadastrar um usuário com o Email em branco', () => {
+            it('Deve cadastrar um usuário com o Email em branco', () => {
                 ServeRestLogin.acessarServeRestCadastro()
                 ServeRestCadastrarUsuario.emailObrigatorio()
             })
-            it('Deve com cadastrar um usuário com a senha em branco', () => {
+            it('Deve cadastrar um usuário com a senha em branco', () => {
                 ServeRestLogin.acessarServeRestCadastro()
                 ServeRestCadastrarUsuario.passwordObrigatorio()
             })
