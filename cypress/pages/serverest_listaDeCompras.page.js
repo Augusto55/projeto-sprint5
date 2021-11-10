@@ -32,8 +32,8 @@ export default class ServeRestCompra extends Base {
     }   
 
     static limparLista() {
-        super.validarUrl('/minhaListaDeProdutos')
         super.clickOnElement(HPNA.BTN_LISTACOMPRAS)
+        super.validarUrl('/minhaListaDeProdutos')
         super.clickOnElement(LC.BTN_LIMPARLISTA)
     }
 

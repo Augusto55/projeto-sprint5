@@ -22,8 +22,8 @@ export default class SR_CadastroProduto extends Base {
     }
 
     static verificarErros() {
-        super.validarUrl('/cadastrarprodutos')
         super.clickOnElement(BP.BTN_CADASTRAR);
+        super.validarUrl('/cadastrarprodutos')
         super.clickOnElement(BP.BTN_CADASTRO);
         super.validarElemento(BP.DIV_ERRO)
     }
