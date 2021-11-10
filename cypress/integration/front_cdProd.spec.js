@@ -15,10 +15,8 @@ describe('Testes Front Cadastro de Produtos ServeRest', () => {
         ServeRestLogin.acessarServeRest()
         ServeRestCadastrarUsuario.login();
     })
-
     it('cadastro correto', () => {
         SR_CadastroProduto.cadastrar() 
-    
     })
     it('cadastro com campos incorretos', () => {
         SR_CadastroProduto.verificarErros()
@@ -29,9 +27,9 @@ describe('Testes Front Cadastro de Produtos ServeRest', () => {
     })
     it('editar produtos(nem funciona)', () => {
         SR_CadastroProduto.editarProdutos()
-    })
-    
+    })    
 })
+
 describe('testes front para não admins', () => {
     before(() => {
         ServeRestLogin.acessarServeRestCadastro()
