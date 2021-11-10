@@ -22,6 +22,12 @@ describe('Testes Front ServeRest - Cadastro de usuário', () => {
                 ServeRestCadastrarUsuario.login()
                 cy.wait(3000)
             })
+            it('Deve validar elementos da página inicial', () => {
+                //ServeRestCadastrarUsuario.login()
+                ServeRestLogin.validarNavBarAdmin()
+                ServeRestLogin.validarCorpoAdmin()
+                cy.wait(3000)
+            })
         })
 
         describe('Cadastro de usuário sem propriedades de administrador', () => {    
@@ -35,6 +41,11 @@ describe('Testes Front ServeRest - Cadastro de usuário', () => {
                 ServeRestLogin.acessarServeRest()
                 ServeRestCadastrarUsuario.loginNaoAdmin()
                 cy.wait(3000)
+            })
+            it('Validar elementos da página inicial', () => {
+                ServeRestLogin.validarHomepageNaoAdmin()
+                ServeRestLogin.validarDivsProdutos()
+                ServeRestLogin.validarValue()
             })
         })
     })

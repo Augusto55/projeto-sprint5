@@ -12,46 +12,6 @@ describe('Testes Front ServeRest', () => {
             ServeRestLogin.acessarServeRest()
             ServeRestLogin.verificarLogin()
         })
-
-        describe('Testes de login com um usuário com propriedades de administrador', () => {    
-            before(() => {
-                ServeRestLogin.acessarServeRest()
-            })
-            it('Deve cadastrar um usuário', () => {
-                ServeRestLogin.acessarServeRestCadastro()
-                ServeRestCadastrarUsuario.realizar_cadastroAdmin()
-                cy.wait(3000)   
-            })
-            it('Deve logar com esse mesmo usuário', () => {
-                ServeRestLogin.acessarServeRest()
-                ServeRestCadastrarUsuario.login()
-                cy.wait(3000)
-            })
-            it('Deve validar elementos da página inicial', () => {
-                //ServeRestCadastrarUsuario.login()
-                ServeRestLogin.validarNavBarAdmin()
-                ServeRestLogin.validarCorpoAdmin()
-                cy.wait(3000)
-            })
-        })
-
-        describe('Testes de login com um usuário sem propriedades de administrador', () => {    
-            it('Deve cadastrar um usuário', () => {
-                ServeRestLogin.acessarServeRestCadastro()
-                ServeRestCadastrarUsuario.realizar_cadastroNaoAdmin()
-                cy.wait(3000)
-            })
-            it('Deve logar com esse mesmo usuário', () => {
-                ServeRestLogin.acessarServeRest()
-                ServeRestCadastrarUsuario.loginNaoAdmin()
-                cy.wait(3000)
-            })
-            it('Validar elementos da página inicial', () => {
-                ServeRestLogin.validarHomepageNaoAdmin()
-                ServeRestLogin.validarDivsProdutos()
-                ServeRestLogin.validarValue()
-            })
-        })    
     })
 
     /****************************************************************************/
