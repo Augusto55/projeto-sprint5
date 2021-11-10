@@ -13,7 +13,6 @@ describe("Testes para USUARIOS", () => {
                 expect(res.statusCode === 200);
                 expect(res.body.usuarios).to.be.a("array")
                 expect(res.body.usuarios[0]._id).to.be.a("string")
-                idUsuario = res.body.usuarios[0]._id
             })
         })
     })
