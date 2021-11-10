@@ -1,5 +1,18 @@
 {
   "env": {
 		"base_url": "localhost:3000"
-	}
+	},
+	"video": false,
+	"screenShot": false,
+	"reporter": "mochawesome",
+  	"reporterOptions": {
+		"reportDir": "cypress/report/mochawesome-report",
+		"overwrite": false,
+		"html": false,
+		"json": true,
+		"timestamp" : "yyyymmdd_HHMMss",
+		"reportTitle" : "Relatório Testes Sprint 5",
+		"cdn" : true,
+		"charts" : true
+  }
 }

@@ -1,0 +1,186 @@
+{
+  "stats": {
+    "suites": 3,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-11-10T20:46:22.354Z",
+    "end": "2021-11-10T20:46:58.179Z",
+    "duration": 35825,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "794f408c-aff7-4606-ac08-43e89fd44266",
+      "title": "",
+      "fullFile": "cypress/integration/front_listaDeCompras.spec.js",
+      "file": "cypress/integration/front_listaDeCompras.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "910c7a29-cd22-45c1-9c18-54ee616d3037",
+          "title": "Testes Front ServeRest - COMPRAS",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "7a73112a-cfc9-4a28-ad40-928732e787b6",
+              "title": "Testes de compra positivos",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Deve realizar uma compra e validar todas as etapas",
+                  "fullTitle": "Testes Front ServeRest - COMPRAS Testes de compra positivos Deve realizar uma compra e validar todas as etapas",
+                  "timedOut": null,
+                  "duration": 14090,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "_serverest_login.default.validarHomepageNaoAdmin();\n_serverest_login.default.validarDivsProdutos();\n_serverest_listaCompras.default.adicionarNaLista();\ncy.wait(1500);\n_serverest_listaCompras.default.validarListaDeCompras();\n_serverest_listaCompras.default.validarProduto();",
+                  "err": {},
+                  "uuid": "3ef0cb6c-2b59-41d7-b944-1359a47a6690",
+                  "parentUUID": "7a73112a-cfc9-4a28-ad40-928732e787b6",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "3ef0cb6c-2b59-41d7-b944-1359a47a6690"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 14090,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "f8511812-f559-456e-9842-d94deed8516d",
+              "title": "Compras positivas",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Deve realizar o caminho completo ate adicionar ao carrinho",
+                  "fullTitle": "Testes Front ServeRest - COMPRAS Compras positivas Deve realizar o caminho completo ate adicionar ao carrinho",
+                  "timedOut": null,
+                  "duration": 10197,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "//as proximas 2 linhas podem ser replicadas diversas vezes para adicionar mais produtos\n_serverest_listaCompras.default.adicionarNaLista();\ncy.wait(1000);\n_serverest_listaCompras.default.adicionarNaLista();\ncy.wait(1000);\n_serverest_listaCompras.default.adicionarNaLista();\ncy.wait(1000);\n_serverest_listaCompras.default.mandarParaCarrinho();",
+                  "err": {},
+                  "uuid": "1addf429-5fb7-472c-8da0-ef67bd5bdd02",
+                  "parentUUID": "f8511812-f559-456e-9842-d94deed8516d",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Deve adicionar itens e limpar a lista",
+                  "fullTitle": "Testes Front ServeRest - COMPRAS Compras positivas Deve adicionar itens e limpar a lista",
+                  "timedOut": null,
+                  "duration": 8093,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "_serverest_listaCompras.default.adicionarNaLista();\ncy.wait(1000);\n_serverest_listaCompras.default.adicionarNaLista();\ncy.wait(1000);\n_serverest_listaCompras.default.limparLista();",
+                  "err": {},
+                  "uuid": "111ee1ae-f232-41f0-b7e5-31806065a0db",
+                  "parentUUID": "f8511812-f559-456e-9842-d94deed8516d",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "1addf429-5fb7-472c-8da0-ef67bd5bdd02",
+                "111ee1ae-f232-41f0-b7e5-31806065a0db"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 18290,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.3.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/report/mochawesome-report",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "timestamp": "yyyymmdd_HHMMss",
+        "reportTitle": "Relatório Testes Sprint 5",
+        "cdn": true,
+        "charts": true
+      },
+      "version": "5.2.0"
+    }
+  }
+}

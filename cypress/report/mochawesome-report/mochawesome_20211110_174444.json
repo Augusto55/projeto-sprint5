@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-11-10T20:44:43.975Z",
+    "end": "2021-11-10T20:44:44.185Z",
+    "duration": 210,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c3c8a635-00a0-43cb-b879-d6adca356043",
+      "title": "",
+      "fullFile": "cypress/integration/back.carrinho.spec.js",
+      "file": "cypress/integration/back.carrinho.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b0d72c68-3572-4206-a3ff-5003f82f56ec",
+          "title": "Testes de API ServeRest - CARRINHO",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve utilizar GET para listar os todos os carrinhos disponiveis",
+              "fullTitle": "Testes de API ServeRest - CARRINHO Deve utilizar GET para listar os todos os carrinhos disponiveis",
+              "timedOut": null,
+              "duration": 188,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.buscarCarrinho().then(res => {\n  expect(res.statusCode === 200);\n  expect(res.body).to.have.all.keys(\"quantidade\", \"carrinhos\");\n  expect(res.body.carrinhos[0]).to.have.property(\"produtos\");\n  expect(res.body.carrinhos[0]).to.have.property(\"precoTotal\");\n  expect(res.body.carrinhos[0]).to.have.property(\"quantidadeTotal\");\n  expect(res.body.carrinhos[0]).to.have.property(\"idUsuario\");\n  expect(res.body.carrinhos[0]).to.have.property(\"_id\");\n  expect(res.body.carrinhos[0].produtos).to.be.a(\"array\");\n  expect(res.body.carrinhos[0].precoTotal).to.be.a(\"number\");\n  expect(res.body.carrinhos[0].quantidadeTotal).to.be.a(\"number\");\n  expect(res.body.carrinhos[0]._id).to.be.a(\"string\");\n});",
+              "err": {},
+              "uuid": "49e0707a-27d7-4d34-bb6b-2115951434ed",
+              "parentUUID": "b0d72c68-3572-4206-a3ff-5003f82f56ec",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "49e0707a-27d7-4d34-bb6b-2115951434ed"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 188,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.3.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/report/mochawesome-report",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "timestamp": "yyyymmdd_HHMMss",
+        "reportTitle": "Relatório Testes Sprint 5",
+        "cdn": true,
+        "charts": true
+      },
+      "version": "5.2.0"
+    }
+  }
+}

@@ -1,0 +1,147 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-11-10T20:44:57.026Z",
+    "end": "2021-11-10T20:44:57.174Z",
+    "duration": 148,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f23074ca-2439-4af7-b860-227539ac1ff8",
+      "title": "",
+      "fullFile": "cypress/integration/back.usuarios.spec.js",
+      "file": "cypress/integration/back.usuarios.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7c8bb511-2107-44f3-b8f8-6d38ec80810c",
+          "title": "Testes de API ServeRest - USUARIOS",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve validar a resposta de GET usuarios",
+              "fullTitle": "Testes de API ServeRest - USUARIOS Deve validar a resposta de GET usuarios",
+              "timedOut": null,
+              "duration": 37,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.listarUSERS().then(res => {\n  expect(res.statusCode === 200);\n});",
+              "err": {},
+              "uuid": "472a7b9a-7ccf-4b4c-8da6-010de7d7a682",
+              "parentUUID": "7c8bb511-2107-44f3-b8f8-6d38ec80810c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve pegar um id com a resposta de GET usuarios",
+              "fullTitle": "Testes de API ServeRest - USUARIOS Deve pegar um id com a resposta de GET usuarios",
+              "timedOut": null,
+              "duration": 28,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture(\"loginCredentials\").then(usuario => {\n  cy.pegarUserExpecifico(usuario.valido).then(res => {\n    expect(res.statusCode === 200);\n    expect(res.body.usuarios).to.be.a(\"array\");\n    expect(res.body.usuarios[0]._id).to.be.a(\"string\");\n  });\n});",
+              "err": {},
+              "uuid": "a3ec3477-8cda-49b4-976f-0877f88d1ca7",
+              "parentUUID": "7c8bb511-2107-44f3-b8f8-6d38ec80810c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Validar testes de contrato da resposta de GET usuarios",
+              "fullTitle": "Testes de API ServeRest - USUARIOS Validar testes de contrato da resposta de GET usuarios",
+              "timedOut": null,
+              "duration": 61,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.listarUSERS().then(res => {\n  expect(res.statusCode === 200);\n  cy.validarContrato(res, \"get_usuarios\", 200).then(validacao => {\n    expect(validacao).to.be.equal(\"Contrato valido.\");\n  });\n});",
+              "err": {},
+              "uuid": "eb5a54d8-1471-468a-bacf-a64494fbeb53",
+              "parentUUID": "7c8bb511-2107-44f3-b8f8-6d38ec80810c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "472a7b9a-7ccf-4b4c-8da6-010de7d7a682",
+            "a3ec3477-8cda-49b4-976f-0877f88d1ca7",
+            "eb5a54d8-1471-468a-bacf-a64494fbeb53"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 126,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.3.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/report/mochawesome-report",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "timestamp": "yyyymmdd_HHMMss",
+        "reportTitle": "Relatório Testes Sprint 5",
+        "cdn": true,
+        "charts": true
+      },
+      "version": "5.2.0"
+    }
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-11-10T20:45:02.917Z",
+    "end": "2021-11-10T20:45:31.454Z",
+    "duration": 28537,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "5f7d606d-ba1d-4b07-88ba-37ac33c460c8",
+      "title": "",
+      "fullFile": "cypress/integration/front_cdProd.spec.js",
+      "file": "cypress/integration/front_cdProd.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "3fc8296b-f7ac-4f78-991c-6ef97d6027a7",
+          "title": "Testes Front ServeRest - CADASTRO DE PRODUTOS",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve realizar cadastro corretamente",
+              "fullTitle": "Testes Front ServeRest - CADASTRO DE PRODUTOS Deve realizar cadastro corretamente",
+              "timedOut": null,
+              "duration": 12130,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_serverest_prod.default.cadastrar();",
+              "err": {},
+              "uuid": "5a58fa05-f286-4bab-9486-88a3d1e27708",
+              "parentUUID": "3fc8296b-f7ac-4f78-991c-6ef97d6027a7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve realizar cadastro com campos vazios",
+              "fullTitle": "Testes Front ServeRest - CADASTRO DE PRODUTOS Deve realizar cadastro com campos vazios",
+              "timedOut": null,
+              "duration": 2938,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_serverest_prod.default.verificarErros();",
+              "err": {},
+              "uuid": "5ffb3192-19f7-4411-b79b-ee726d815576",
+              "parentUUID": "3fc8296b-f7ac-4f78-991c-6ef97d6027a7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve excluir um produtos",
+              "fullTitle": "Testes Front ServeRest - CADASTRO DE PRODUTOS Deve excluir um produtos",
+              "timedOut": null,
+              "duration": 3730,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_serverest_prod.default.excluirProdutos();",
+              "err": {},
+              "uuid": "8f718f6f-d694-42a8-85a6-93e46ea89323",
+              "parentUUID": "3fc8296b-f7ac-4f78-991c-6ef97d6027a7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve editar um produto(não está funcionando)",
+              "fullTitle": "Testes Front ServeRest - CADASTRO DE PRODUTOS Deve editar um produto(não está funcionando)",
+              "timedOut": null,
+              "duration": 4685,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_serverest_prod.default.editarProdutos();",
+              "err": {},
+              "uuid": "fd3ad164-32ad-4a6f-be4f-db882b2cfa26",
+              "parentUUID": "3fc8296b-f7ac-4f78-991c-6ef97d6027a7",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "5a58fa05-f286-4bab-9486-88a3d1e27708",
+            "5ffb3192-19f7-4411-b79b-ee726d815576",
+            "8f718f6f-d694-42a8-85a6-93e46ea89323",
+            "fd3ad164-32ad-4a6f-be4f-db882b2cfa26"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 23483,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.3.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/report/mochawesome-report",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "timestamp": "yyyymmdd_HHMMss",
+        "reportTitle": "Relatório Testes Sprint 5",
+        "cdn": true,
+        "charts": true
+      },
+      "version": "5.2.0"
+    }
+  }
+}

@@ -1,0 +1,204 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-11-10T20:44:55.349Z",
+    "end": "2021-11-10T20:44:55.767Z",
+    "duration": 418,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "75f08574-636f-420e-b712-6f14df64fbd1",
+      "title": "",
+      "fullFile": "cypress/integration/back.produtos.spec.js",
+      "file": "cypress/integration/back.produtos.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "3045f05f-618d-4a7a-95dc-af3d829ad052",
+          "title": "Testes de API ServeRest - PRODUTOS",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Requesição GET na rota dos produtos \n(Lista todos produtos disponiveis)",
+              "fullTitle": "Testes de API ServeRest - PRODUTOS Requesição GET na rota dos produtos \n(Lista todos produtos disponiveis)",
+              "timedOut": null,
+              "duration": 147,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.buscarProdutos().then(res => {\n  expect(res.statusCode === 200);\n  cy.validarContrato(res, \"get_produtos\", 200).then(validacao => {\n    expect(validacao).to.be.equal(\"Contrato valido.\");\n  });\n});",
+              "err": {},
+              "uuid": "129b0d0b-ce22-405b-b21d-88790db626e8",
+              "parentUUID": "3045f05f-618d-4a7a-95dc-af3d829ad052",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Criação de um produto no sistema utilizando POST",
+              "fullTitle": "Testes de API ServeRest - PRODUTOS Criação de um produto no sistema utilizando POST",
+              "timedOut": null,
+              "duration": 63,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let produto = _factory.default.geradorDeProdutos();\ncy.fixture(\"loginCredentials\").then(usuario => {\n  cy.logar(usuario.valido).then(res => {\n    bearer = res.body.authorization;\n    cy.criarProduto(bearer, produto).then(res => {\n      expect(res.statusCode === 201);\n      expect(res.body).to.have.all.keys(\"message\", \"_id\");\n      expect(res.body.message).to.equal(\"Cadastro realizado com sucesso\");\n      cy.validarContrato(res, \"post_produtos\", 201).then(validacao => {\n        expect(validacao).to.be.equal(\"Contrato valido.\");\n      });\n    });\n  });\n});",
+              "err": {},
+              "uuid": "e8313a91-9f90-4595-9022-89829be0c94c",
+              "parentUUID": "3045f05f-618d-4a7a-95dc-af3d829ad052",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Teste de inserção de um produto já existente",
+              "fullTitle": "Testes de API ServeRest - PRODUTOS Teste de inserção de um produto já existente",
+              "timedOut": null,
+              "duration": 47,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture(\"loginCredentials\").then(usuario => {\n  cy.logar(usuario.valido).then(res => {\n    bearer = res.body.authorization;\n    cy.fixture(\"existingProd\").then(produto => {\n      cy.criarProduto(bearer, produto.produtoExistente).then(res => {\n        expect(res.statusCode === 400);\n        expect(res.body).to.have.property(\"message\");\n        cy.validarContrato(res, \"post_produtos\", 400).then(validacao => {\n          expect(validacao).to.be.equal(\"Contrato valido.\");\n        });\n      });\n    });\n  });\n});",
+              "err": {},
+              "uuid": "84c4a21a-6ae0-4eca-b956-bf32834c5dd5",
+              "parentUUID": "3045f05f-618d-4a7a-95dc-af3d829ad052",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Teste de inserção de Token invalido/inesistente/expirado",
+              "fullTitle": "Testes de API ServeRest - PRODUTOS Teste de inserção de Token invalido/inesistente/expirado",
+              "timedOut": null,
+              "duration": 40,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let produto = _factory.default.geradorDeProdutos();\ncy.fixture(\"loginCredentials\").then(usuario => {\n  cy.logar(usuario.emailLOCO).then(res => {\n    bearer = res.body.authorization;\n    cy.criarProduto(bearer, produto).then(res => {\n      expect(res.statusCode === 401);\n      expect(res.body).to.have.property(\"message\");\n      expect(res.body.message).to.be.equal(\"Token de acesso ausente, inválido, expirado ou usuário do token não existe mais\");\n      cy.validarContrato(res, \"post_produtos\", 401).then(validacao => {\n        expect(validacao).to.be.equal(\"Contrato valido.\");\n      });\n    });\n  });\n});",
+              "err": {},
+              "uuid": "8f8baec8-53b9-4913-b4f0-840e5576489d",
+              "parentUUID": "3045f05f-618d-4a7a-95dc-af3d829ad052",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Fazer uma requesição de um produto expecifico",
+              "fullTitle": "Testes de API ServeRest - PRODUTOS Fazer uma requesição de um produto expecifico",
+              "timedOut": null,
+              "duration": 31,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture(\"existingProd\").then(produto => {\n  cy.buscarProdutoExistente(produto.product_ID_Existente._id).then(res => {\n    expect(res.statusCode === 200);\n    expect(res.body).to.have.all.keys(\"nome\", \"preco\", \"descricao\", \"quantidade\", \"_id\");\n    cy.validarContrato(res, \"get_produtos/_id\", 200).then(validacao => {\n      expect(validacao).to.be.equal(\"Contrato valido.\");\n    });\n  });\n});",
+              "err": {},
+              "uuid": "580f2942-83da-4861-bcee-c3f13e70e77a",
+              "parentUUID": "3045f05f-618d-4a7a-95dc-af3d829ad052",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deletar um produto temporario",
+              "fullTitle": "Testes de API ServeRest - PRODUTOS Deletar um produto temporario",
+              "timedOut": null,
+              "duration": 48,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let produto = _factory.default.geradorDeProdutos();\nvar id;\ncy.fixture(\"loginCredentials\").then(usuario => {\n  cy.logar(usuario.valido).then(login => {\n    bearer = login.body.authorization;\n    cy.criarProduto(bearer, produto).then(prod => {\n      id = prod.body._id;\n      cy.deletarProduto(bearer, id).then(res => {\n        expect(res.statusCode === 200);\n        expect(res.body).to.have.property(\"message\");\n        expect(res.body.message).to.be.equal(\"Registro excluído com sucesso\"); //cy.validarContrato(res, \"delete_produtos\", 200).then( validacao => {\n        //    expect(validacao).to.be.equal(\"Contrato valido.\")\n        //})\n      });\n    });\n  });\n});",
+              "err": {},
+              "uuid": "b76ea2c1-d3f8-4ccc-ab9f-b8590bf425d4",
+              "parentUUID": "3045f05f-618d-4a7a-95dc-af3d829ad052",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "129b0d0b-ce22-405b-b21d-88790db626e8",
+            "e8313a91-9f90-4595-9022-89829be0c94c",
+            "84c4a21a-6ae0-4eca-b956-bf32834c5dd5",
+            "8f8baec8-53b9-4913-b4f0-840e5576489d",
+            "580f2942-83da-4861-bcee-c3f13e70e77a",
+            "b76ea2c1-d3f8-4ccc-ab9f-b8590bf425d4"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 376,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.3.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/report/mochawesome-report",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "timestamp": "yyyymmdd_HHMMss",
+        "reportTitle": "Relatório Testes Sprint 5",
+        "cdn": true,
+        "charts": true
+      },
+      "version": "5.2.0"
+    }
+  }
+}

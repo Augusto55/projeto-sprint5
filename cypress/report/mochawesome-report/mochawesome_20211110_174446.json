@@ -1,0 +1,204 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-11-10T20:44:45.782Z",
+    "end": "2021-11-10T20:44:46.179Z",
+    "duration": 397,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b24145fd-7084-442b-bd90-e5fd5bb3e974",
+      "title": "",
+      "fullFile": "cypress/integration/back.login.spec.js",
+      "file": "cypress/integration/back.login.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6c4efe69-bc06-4657-a2d8-d816d5bf3c65",
+          "title": "Testes de API ServeRest - LOGIN",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Tentar login com um ADM \nTentar login com usuario",
+              "fullTitle": "Testes de API ServeRest - LOGIN Tentar login com um ADM \nTentar login com usuario",
+              "timedOut": null,
+              "duration": 201,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture(\"loginCredentials\").then(usuario => {\n  cy.logar(usuario.valido).then(res => {\n    expect(res.statusCode === 200);\n    expect(res.body).to.have.all.keys(\"message\", \"authorization\");\n    bearer = res.body.authorization;\n    cy.validarContrato(res, \"post_login\", 200).then(validacao => {\n      //res = resposta | pasta | arquivo .json\n      expect(validacao).to.be.equal(\"Contrato valido.\");\n    });\n  });\n});",
+              "err": {},
+              "uuid": "c38d9046-ba95-4f05-b22d-fccfbbf41830",
+              "parentUUID": "6c4efe69-bc06-4657-a2d8-d816d5bf3c65",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve tentar login com email anormal com erro",
+              "fullTitle": "Testes de API ServeRest - LOGIN Deve tentar login com email anormal com erro",
+              "timedOut": null,
+              "duration": 43,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture(\"loginCredentials\").then(usuario => {\n  cy.logar(usuario.emailLOCO).then(res => {\n    expect(res.statusCode === 400);\n    expect(res.body).to.have.property(\"email\");\n    expect(res.body.email).to.equal(\"email deve ser um email válido\");\n    cy.validarContrato(res, \"post_login/email\", 400).then(validacao => {\n      expect(validacao).to.be.equal(\"Contrato valido.\");\n    });\n  });\n});",
+              "err": {},
+              "uuid": "9de19f45-66e7-46a6-90b7-15d423b5404d",
+              "parentUUID": "6c4efe69-bc06-4657-a2d8-d816d5bf3c65",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve tentar login com caixa de email vazia",
+              "fullTitle": "Testes de API ServeRest - LOGIN Deve tentar login com caixa de email vazia",
+              "timedOut": null,
+              "duration": 33,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture(\"loginCredentials\").then(usuario => {\n  cy.logar(usuario.emailNPreenchido).then(res => {\n    expect(res.statusCode === 400);\n    expect(res.body).to.have.property(\"email\");\n    expect(res.body.email).to.equal(\"email não pode ficar em branco\");\n    cy.validarContrato(res, \"post_login/email\", 400).then(validacao => {\n      expect(validacao).to.be.equal(\"Contrato valido.\");\n    });\n  });\n});",
+              "err": {},
+              "uuid": "3c279984-5447-4b49-8b93-a88db5f51d4a",
+              "parentUUID": "6c4efe69-bc06-4657-a2d8-d816d5bf3c65",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve tentar login com caixa de senha vazia",
+              "fullTitle": "Testes de API ServeRest - LOGIN Deve tentar login com caixa de senha vazia",
+              "timedOut": null,
+              "duration": 29,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture(\"loginCredentials\").then(usuario => {\n  cy.logar(usuario.senhaNPreenchida).then(res => {\n    expect(res.statusCode === 400);\n    expect(res.body).to.have.property(\"password\");\n    expect(res.body.password).to.equal(\"password não pode ficar em branco\");\n    cy.validarContrato(res, \"post_login/password\", 400).then(validacao => {\n      expect(validacao).to.be.equal(\"Contrato valido.\");\n    });\n  });\n});",
+              "err": {},
+              "uuid": "24479665-86f2-443f-97af-bfa2a4433bde",
+              "parentUUID": "6c4efe69-bc06-4657-a2d8-d816d5bf3c65",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve tentar login com erro - SEM EMAIL",
+              "fullTitle": "Testes de API ServeRest - LOGIN Deve tentar login com erro - SEM EMAIL",
+              "timedOut": null,
+              "duration": 24,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture(\"loginCredentials\").then(usuario => {\n  cy.logar(usuario.emailVAZIO).then(res => {\n    expect(res.statusCode === 400);\n    expect(res.body).to.have.property(\"email\");\n    expect(res.body.email).to.equal(\"email é obrigatório\");\n    cy.validarContrato(res, \"post_login/email\", 400).then(validacao => {\n      expect(validacao).to.be.equal(\"Contrato valido.\");\n    });\n  });\n});",
+              "err": {},
+              "uuid": "a98cdadb-a14e-4400-8645-d52511208342",
+              "parentUUID": "6c4efe69-bc06-4657-a2d8-d816d5bf3c65",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve tentar login com erro - SEM SENHA",
+              "fullTitle": "Testes de API ServeRest - LOGIN Deve tentar login com erro - SEM SENHA",
+              "timedOut": null,
+              "duration": 23,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture(\"loginCredentials\").then(usuario => {\n  cy.logar(usuario.senhaVAZIA).then(res => {\n    expect(res.statusCode === 400);\n    expect(res.body).to.have.property(\"password\");\n    expect(res.body.password).to.equal(\"password é obrigatório\");\n    cy.validarContrato(res, \"post_login/password\", 400).then(validacao => {\n      expect(validacao).to.be.equal(\"Contrato valido.\");\n    });\n  });\n});",
+              "err": {},
+              "uuid": "6f474c21-3629-4aac-922a-b9c921a16bef",
+              "parentUUID": "6c4efe69-bc06-4657-a2d8-d816d5bf3c65",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c38d9046-ba95-4f05-b22d-fccfbbf41830",
+            "9de19f45-66e7-46a6-90b7-15d423b5404d",
+            "3c279984-5447-4b49-8b93-a88db5f51d4a",
+            "24479665-86f2-443f-97af-bfa2a4433bde",
+            "a98cdadb-a14e-4400-8645-d52511208342",
+            "6f474c21-3629-4aac-922a-b9c921a16bef"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 353,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.3.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/report/mochawesome-report",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "timestamp": "yyyymmdd_HHMMss",
+        "reportTitle": "Relatório Testes Sprint 5",
+        "cdn": true,
+        "charts": true
+      },
+      "version": "5.2.0"
+    }
+  }
+}
